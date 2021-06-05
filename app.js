@@ -9,11 +9,11 @@ $(document).ready(() => {
     e.preventDefault();
 
     const value = $("input:text").val();
-    console.log(value);
+
     if (value == "") {
       return;
     } else {
-      fetch("http://localhost:3000/api/user", {
+      fetch("https://videocallserverdwiti.herokuapp.com/api/user", {
         method: "POST",
         // The data
 
@@ -28,7 +28,6 @@ $(document).ready(() => {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           document
             .querySelector(".videocallApp")
             .classList.remove("videocallApp");
@@ -57,7 +56,6 @@ $(document).ready(() => {
   }
 
   function initializeSession(apiKey, sessionId, token) {
-    console.log(sessionId);
     if (OT.checkSystemRequirements() == 1) {
       var session = OT.initSession(apiKey, sessionId);
     } else {
